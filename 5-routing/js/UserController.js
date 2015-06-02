@@ -6,9 +6,12 @@
     var app = angular.module("GitHubViewer");
 
     /**
-     * Controller definition
+     * Controller definition for displaying data of a user
+     *
      * @param $scope binding for sharing a model with the view
-     * @param $http allows to do requests
+     * @param log writes log messages on the console
+     * @param $routeParams gets parameters from the url
+     * @param GitHubService gets data from GitHub
      */
     var UserController = function($scope, $log, $routeParams, GitHubService) {
 
@@ -40,16 +43,13 @@
                 then(onReposLoaded, onReposLoadingError);
         };
 
-        /** Searches a user by username */
-        $scope.search = function() {
-            GitHubService.getUser($scope.username).
-                then(onUserLoaded, onUserLoadingError);
-        };
+        // Get the user information when the controller is accessed
+        GitHubService.getUser($routeParams.username).then(onUserLoaded, onUserLoadingError);
 
         $log.info('Loaded UserController');
     };
 
     // Register the controller inside the module
-    // Add the params $scope and $http so Angular identifies them even if they are renamed by a JS minifier
+    // Add params like $scope so Angular identifies them even if they are renamed by a JS minifier
     app.controller("UserController", ['$scope', '$log', '$routeParams', 'GitHubService', UserController]);
 }());

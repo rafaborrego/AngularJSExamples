@@ -6,6 +6,7 @@
     // The viewer is registered here instead of in the controller and includes the routing dependency
     var app = angular.module("GitHubViewer", ["ngRoute"]);
 
+    // Specify the controller and the html for each url, and the default one
     app.config(function($routeProvider) {
         $routeProvider
             .when("/search", {
@@ -16,11 +17,6 @@
                 templateUrl: "user.html",
                 controller: "UserController"
             })
-            .when("/repo/:username/:reponame", {
-                templateUrl: "repo.html",
-                controller: "RepoController"
-            })
             .otherwise({redirectTo:"/search"});
     });
-
 }());
