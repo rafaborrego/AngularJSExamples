@@ -1,0 +1,16 @@
+
+.user-picture {
+    width: 150px;
+}
+
+.user-data-container {
+    width: 400px;
+}
+
+.user-data-static {
+    float: left;
+}
+
+.user-data-dynamic {
+    float: right;
+}

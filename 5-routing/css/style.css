@@ -1,0 +1,11 @@
+
+.user-picture {
+    width: 150px;
+}
+
+.header{
+    background-color: lightblue;
+    text-align: center;
+    font-style: italic;
+    height: 50px;
+}

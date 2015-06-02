@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <script data-require="angular.js@1.3.15" data-semver="1.3.15" src="https://code.angularjs.org/1.3.15/angular.js"></script>
+        <script src="GitHubController.js"></script>
+        <link href="style.css" rel="stylesheet" />
+    </head>
+
+    <body ng-app="GitHubViewer">
+        <div ng-controller="GitHubController" class="user-data-container">
+
+            <!-- Displays always the same data -->
+            <div class = "user-data-static">
+                <div><b>Static content</b></div>
+                <div>Name: {{userStatic.name}}</div>
+                <div>
+                    <img alt="{{userStatic.name}}" title="{{userStatic.name}}"
+                         ng-src="{{userStatic.imageUrl}}" class="user-picture"/>
+                </div>
+            </div>
+
+            <!-- Displays the data that receives from GitHub -->
+            <div class="user-data-dynamic">
+                {{error}}
+                <div><b>Dynamic content</b></div>
+                <div>Name: {{userDynamic.name}}</div>
+                <div>
+                    <img alt="{{userDynamic.name}}" title="{{userDynamic.name}}"
+                         ng-src="{{userDynamic.imageUrl}}" class="user-picture"/>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
